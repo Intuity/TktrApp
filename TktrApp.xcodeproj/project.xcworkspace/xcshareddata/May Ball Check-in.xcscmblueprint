@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ebd32849-a099-bf4f-a9bc-138f2433826b++3324",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "ebd32849-a099-bf4f-a9bc-138f2433826b++3324" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ebd32849-a099-bf4f-a9bc-138f2433826b++3324" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3A98B767-B090-4399-BFAF-D0ED55150899",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ebd32849-a099-bf4f-a9bc-138f2433826b++3324" : "Ticketing\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "May Ball Check-in",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "May Ball Check-in\/May Ball Check-in.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/10.5.0.5:8080\/svn\/mayball",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ebd32849-a099-bf4f-a9bc-138f2433826b++3324"
+    }
+  ]
+}
