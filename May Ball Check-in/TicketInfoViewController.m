@@ -30,6 +30,7 @@
 
 - (IBAction)runCheckIn:(id)sender;
 - (IBAction)cancelLookup:(id)sender;
+- (IBAction)reloadDetails:(id)sender;
 
 @end
 
@@ -57,12 +58,17 @@
     [self.loading_text setText:@"Requesting Details"];
     [self.loading_cancel_button setHidden:NO];
     [self.loading_cancel_button setEnabled:YES];
+    [self.notes setTextContainerInset:UIEdgeInsetsZero];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+    [self enactDetailLookup];
+}
+
+- (void)enactDetailLookup {
     if(self.lookup_code) {
+        [self.loading_overlay setHidden:NO];
         [[APIInterface instance] apiQueryByTicketID:self.lookup_code
                                        onCompletion:
          ^(NSError *err, NSDictionary *data) {
@@ -79,6 +85,14 @@
                      if([data[@"error"] isEqualToString:@"Insufficient privilege level"]) {
                          UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Insufficient Privileges"
                                                                                          message:@"You are not permitted to lookup tickets"
+                                                                                  preferredStyle:UIAlertControllerStyleAlert];
+                         [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                             [self.navigationController popViewControllerAnimated:YES];
+                         }]];
+                         [self presentViewController:alert animated:YES completion:nil];
+                     } else if([data[@"error"] isEqualToString:@"Check-in is not active"]) {
+                         UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Check-In Disabled"
+                                                                                         message:@"Check in has not been enabled on the server, please ask an administrator to enable it."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
                          [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                              [self.navigationController popViewControllerAnimated:YES];
@@ -221,19 +235,27 @@
                          dispatch_async(dispatch_get_main_queue(), ^{
                              NSLog(@"%@ %@", err, data);
                              if([data[@"result"] isEqualToString:@"success"]) {
-                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Check In Was Successful"
+                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Check-In Was Successful"
                                                                                                  message:@"Guest has been successfully checked in"
                                                                                           preferredStyle:UIAlertControllerStyleAlert];
                                  [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                                      [self.navigationController popViewControllerAnimated:YES];
                                  }]];
                                  [self presentViewController:alert animated:YES completion:nil];
+                             } else if ([data[@"result"] isEqualToString:@"error"] && [data[@"error"] isEqualToString:@"Some tickets are already checked-in"]) {
+                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Guest Already Checked In"
+                                                                                                 message:@"It appears that this guest has already been checked in"
+                                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                                 [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:nil]];
+                                 [self presentViewController:alert animated:YES completion:nil];
+                                 [self enactDetailLookup];
                              } else {
-                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error Occurred During Checkin"
+                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Error Occurred During Check-in"
                                                                                                  message:((err != nil) ? [err localizedDescription] : @"Unknown Error")
                                                                                           preferredStyle:UIAlertControllerStyleAlert];
                                  [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:nil]];
                                  [self presentViewController:alert animated:YES completion:nil];
+                                 [self enactDetailLookup];
                              }
                          });
                      }];
@@ -270,6 +292,10 @@
 
 - (IBAction)cancelLookup:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)reloadDetails:(id)sender {
+    [self enactDetailLookup];
 }
 
 - (void)setLookupDetails:(NSString *)query {

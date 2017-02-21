@@ -152,8 +152,10 @@ static APIInterface * _instance;
              @try {
                  NSDictionary * parsed = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
                  block(err, parsed);
+                 if (err) NSLog(@"An error occurred: %@", err);
              } @catch (NSException *exception) {
                  block([NSError errorWithDomain:@"parseerror" code:0 userInfo:nil], nil);
+                 NSLog(@"An error occurred: %@", exception);
              }
          }];
     [task resume];
