@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AuthenticationViewController.h"
+#import "HostConfigurationViewController.h"
 #import "TicketInfoViewController.h"
 #import "APIInterface.h"
 
@@ -21,6 +22,7 @@
 
 - (BOOL)startScanning;
 - (BOOL)stopScanning;
+- (IBAction)settings:(id)sender;
 
 @end
 
@@ -122,6 +124,12 @@
     self.videoPreviewLayer = nil;
     self.captureSession = nil;
     return true;
+}
+
+- (IBAction)settings:(id)sender {
+    [[APIInterface instance] clearToken];
+    HostConfigurationViewController * config = [self.storyboard instantiateViewControllerWithIdentifier:@"host_config"];
+    [self.navigationController pushViewController:config animated:YES];
 }
 
 #pragma mark - Delegate Callbacks for AVCapture

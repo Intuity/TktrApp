@@ -21,6 +21,7 @@ typedef void (^APIResponseBlock)(NSError * err, NSDictionary * data);
 + (NSString *)hostURL;
 
 - (void)setToken:(NSString *)token;
+- (void)clearToken;
 - (NSString *)token;
 
 + (NSMutableURLRequest *)apiGetRequestForRoute:(NSString *)route withToken:(NSString *)token;

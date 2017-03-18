@@ -94,7 +94,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -103,7 +103,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="QRCrosshairs.png" translatesAutoresizingMaskIntoConstraints="NO" id="5nd-gf-cnr">
-                                <rect key="frame" x="27.5" y="173.5" width="320" height="320"/>
+                                <rect key="frame" x="28" y="174" width="320" height="320"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -116,7 +116,13 @@
                             <constraint firstItem="5nd-gf-cnr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cZd-v0-iXn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scan" prompt="Please scan the QR code on the ticket" id="6up-uk-3cz"/>
+                    <navigationItem key="navigationItem" title="Scan" prompt="Please scan the QR code on the ticket" id="6up-uk-3cz">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="BkV-dU-VID">
+                            <connections>
+                                <action selector="settings:" destination="BYZ-38-t0r" id="jHo-87-MAV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cameraView" destination="NSd-jL-ipV" id="npv-kO-FM0"/>
                     </connections>

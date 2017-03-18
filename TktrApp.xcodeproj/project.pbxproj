@@ -14,6 +14,7 @@
 		BAA873421CE3E210000EF6C5 /* QRCrosshairs.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA873401CE3E210000EF6C5 /* QRCrosshairs.png */; };
 		BAA873431CE3E210000EF6C5 /* QRCrosshairs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA873411CE3E210000EF6C5 /* QRCrosshairs@2x.png */; };
 		BAABDD841E28151C0074D79C /* HostConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAABDD831E28151C0074D79C /* HostConfigurationViewController.m */; };
+		BAC412981E7DDD780012AE5A /* Screen Shot 2017-03-18 at 21.25.58.png in Resources */ = {isa = PBXBuildFile; fileRef = BAC412971E7DDD780012AE5A /* Screen Shot 2017-03-18 at 21.25.58.png */; };
 		BAEAA6361CE38683001F16B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAA6351CE38683001F16B5 /* main.m */; };
 		BAEAA6391CE38683001F16B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAA6381CE38683001F16B5 /* AppDelegate.m */; };
 		BAEAA63C1CE38683001F16B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEAA63B1CE38683001F16B5 /* ViewController.m */; };
@@ -35,6 +36,7 @@
 		BAA873411CE3E210000EF6C5 /* QRCrosshairs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QRCrosshairs@2x.png"; path = "May Ball Check-in/QRCrosshairs@2x.png"; sourceTree = "<group>"; };
 		BAABDD821E28151C0074D79C /* HostConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostConfigurationViewController.h; sourceTree = "<group>"; };
 		BAABDD831E28151C0074D79C /* HostConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostConfigurationViewController.m; sourceTree = "<group>"; };
+		BAC412971E7DDD780012AE5A /* Screen Shot 2017-03-18 at 21.25.58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2017-03-18 at 21.25.58.png"; path = "../../Desktop/Screen Shot 2017-03-18 at 21.25.58.png"; sourceTree = "<group>"; };
 		BAEAA6311CE38683001F16B5 /* TktrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TktrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEAA6351CE38683001F16B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BAEAA6371CE38683001F16B5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		BAABDD801E280F4C0074D79C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAC412971E7DDD780012AE5A /* Screen Shot 2017-03-18 at 21.25.58.png */,
 				BAEAA6451CE38683001F16B5 /* Info.plist */,
 				BAEAA6401CE38683001F16B5 /* Assets.xcassets */,
 				BAA8733E1CE3E0E3000EF6C5 /* LaunchScreen@2x.png */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAEAA6441CE38683001F16B5 /* LaunchScreen.storyboard in Resources */,
+				BAC412981E7DDD780012AE5A /* Screen Shot 2017-03-18 at 21.25.58.png in Resources */,
 				BAEAA6411CE38683001F16B5 /* Assets.xcassets in Resources */,
 				BAEAA63F1CE38683001F16B5 /* Main.storyboard in Resources */,
 				BAA873421CE3E210000EF6C5 /* QRCrosshairs.png in Resources */,

@@ -45,6 +45,11 @@ static APIInterface * _instance;
     [[NSUserDefaults standardUserDefaults] setValue:token forKey:CURRENT_TOKEN];
 }
 
+- (void)clearToken {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:CURRENT_TOKEN];
+    self.auth_token = nil;
+}
+
 - (NSString *)token {
     return self.auth_token;
 }
